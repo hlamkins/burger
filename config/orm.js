@@ -1,10 +1,9 @@
-const { query } = require("../config/connection.js");
-let connection = require("../config/connection.js");
+const connection = require("../config/connection.js");
 
 function printQuestionMarks(num) {
     let arr = [];
 
-    for (var i = 0; i  num; i++) {
+    for (var i = 0; i < num; i++) {
         arr.push("?");
     }
 
@@ -29,7 +28,7 @@ function objToSql(ob) {
     return arr.toString();
 }
 
-let orm = {
+const orm = {
     all: function(tableInput, cb) {
         let queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
