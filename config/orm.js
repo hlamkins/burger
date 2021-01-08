@@ -29,7 +29,7 @@ function objToSql(ob) {
 }
 
 const orm = {
-    all: function(tableInput, cb) {
+    all: (tableInput, cb) => {
         let queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
             if (err) {
@@ -39,7 +39,7 @@ const orm = {
         });
     },
 
-    create: function(table, cols, vals, cb) {
+    create: (table, cols, vals, cb) => {
         let queryString = "INSERT INTO " + table;
 
         queryString += " (";
@@ -51,7 +51,7 @@ const orm = {
 
         console.log(queryString);
 
-        connection.query(queryString, vals, function(err, result) {
+        connection.query(queryString, vals, (err, result) => {
             if (err) {
                 throw err;
             }
@@ -59,7 +59,7 @@ const orm = {
         });
     },
 
-    update: function(table, objColVals, condition, cb) {
+    update: (table, objColVals, condition, cb) => {
         var queryString = "UPDATE " + table;
     
         queryString += " SET ";
@@ -68,7 +68,7 @@ const orm = {
         queryString += condition;
     
         console.log(queryString);
-        connection.query(queryString, function(err, result) {
+        connection.query(queryString, (err, result) => {
           if (err) {
             throw err;
           }
@@ -76,19 +76,20 @@ const orm = {
           cb(result);
         });
       },
-      delete: function(table, condition, cb) {
+
+      delete: (table, condition, cb) => {
         var queryString = "DELETE FROM " + table;
         queryString += " WHERE ";
         queryString += condition;
     
-        connection.query(queryString, function(err, result) {
+        connection.query(queryString, (err, result) => {
           if (err) {
             throw err;
           }
     
           cb(result);
         });
-      }
+      },
     };
         
 
