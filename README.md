@@ -5,4 +5,10 @@ An application that allows you to add burger types to a list of burgers and then
 
 ## Requirements
 Simply open the file in the heroku link to run the application. 
-![Heroku]
+[Heroku](https://mighty-plateau-38769.herokuapp.com/)
+
+## Image of Page
+![Homepage](/public/assets/images/deployed.png)
+
+### Project Status
+App is fully functional. Would like to work on removing the Devour button from burgers that have already been devoured. 
